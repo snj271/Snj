@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Narayan Jewellers Live Support</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script type="module">
+import { db } from "./firebase-config.js";
+import {
+ref,
+set,
+push,
+onChildAdded
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+window.startChat = function() {
+
+const name =
+document.getElementById("customerName").value.trim();
+
+if(!name){
+alert("Please enter your name");
+return;
+}
+
+let customerId =
+localStorage.getItem("customerId");
+
+if(!customerId){
+customerId =
+"cust_" + Date.now();
+
+localStorage.setItem(
+"customerId",
+customerId
+);
+}
+
+localStorage.setItem(
+"customerName",
+name
+);
+
+set(
+ref(db,"customers/"+customerId),
+{
+name:name,
+online:true,
+lastSeen:Date.now()
+}
+);
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("chatSection").style.display="block";
+
+document.getElementById("welcome").innerText =
+"Welcome " + name + " 👋";
+
+loadMessages(customerId);
+}
+
+window.sendMessage = function(){
+
+const msg =
+document.getElementById("messageInput").value.trim();
+
+if(!msg) return;
+
+const customerId =
+localStorage.getItem("customerId");
+
+const customerName =
+localStorage.getItem("customerName");
+
+const newMsg =
+push(
+ref(db,"messages/"+customerId)
+);
+
+set(newMsg,{
+sender:"customer",
+name:customerName,
+text:msg,
+timestamp:Date.now()
+});
+
+document.getElementById("messageInput").value="";
+}
+
+function loadMessages(customerId){
+
+const messagesDiv =
+document.getElementById("messages");
+
+messagesDiv.innerHTML="";
+
+onChildAdded(
+ref(db,"messages/"+customerId),
+(snapshot)=>{
+
+const data =
+snapshot.val();
+
+const div =
+document.createElement("div");
+
+if(data.sender==="customer"){
+div.className =
+"message customer-msg";
+}else{
+div.className =
+"message admin-msg";
+}
+
+div.innerHTML =
+"<strong>"+data.sender+"</strong><br>"+data.text;
+
+messagesDiv.appendChild(div);
+
+messagesDiv.scrollTop =
+messagesDiv.scrollHeight;
+
+});
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="header">
+Shree Narayan Jewellers Live Support
+</div>
+
+<div class="container">
+
+<div id="loginBox" class="card">
+
+<h2>Enter Your Name</h2>
+
+<input
+type="text"
+id="customerName"
+placeholder="Your Name">
+
+<button onclick="startChat()">
+Start Chat
+</button>
+
+</div>
+
+<div
+id="chatSection"
+style="display:none;">
+
+<h3 id="welcome"></h3>
+
+<div
+id="messages"
+class="messages">
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="messageInput"
+placeholder="Type message...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
