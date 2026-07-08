@@ -696,19 +696,21 @@
           <div class="absolute -inset-10 pointer-events-none opacity-60" style="background:radial-gradient(circle at 30% 20%,#D4AF37 0%,transparent 55%),radial-gradient(circle at 75% 80%,#8a6d1f 0%,transparent 50%);filter:blur(60px);animation:auroraDrift 9s ease-in-out infinite alternate"></div>
 
           <!-- Main framed image -->
-          <div class="relative rounded-sm overflow-hidden" style="border:1px solid rgba(212,175,55,0.35);margin-top:1.25rem;margin-right:1rem">
-            <div class="absolute -top-4 -left-4 z-10 rounded-sm px-4 py-2 flex items-center gap-2 shadow-xl" style="background:var(--gold);color:#0a0902">
+          <div class="relative" style="margin-top:1.5rem;margin-right:1.25rem;padding:0.9rem">
+            <div class="rounded-sm overflow-hidden" style="border:1px solid rgba(212,175,55,0.35)">
+              <img src="image_004.png" alt="Ornate gold jhumka earrings collection" class="w-full object-cover" style="aspect-ratio:4/5" loading="lazy"/>
+              <div class="absolute inset-0" style="background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,0.85) 100%)"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="font-sans text-[10px] tracking-[0.3em] uppercase mb-1" style="color:var(--gold)">New Collection</div>
+                <div class="font-serif text-2xl font-semibold text-white">Earrings &amp; Jhumkas</div>
+              </div>
+            </div>
+            <div class="absolute top-0 left-0 z-10 rounded-sm px-4 py-2 flex items-center gap-2 shadow-xl" style="background:var(--gold);color:#0a0902">
               <i class="fa-solid fa-store"></i>
               <span class="font-sans text-xs font-bold tracking-wide">Wholesale Only</span>
             </div>
-            <div class="absolute -bottom-4 -right-4 z-10 rounded-sm px-4 py-2 shadow-xl" style="background:#0a0902;border:1px solid var(--gold)">
+            <div class="absolute bottom-0 right-0 z-10 rounded-sm px-4 py-2 shadow-xl" style="background:#0a0902;border:1px solid var(--gold)">
               <span class="font-serif text-lg font-bold" style="color:var(--gold)">From ₹14</span>
-            </div>
-            <img src="image_004.png" alt="Ornate gold jhumka earrings collection" class="w-full object-cover" style="aspect-ratio:4/5" loading="lazy"/>
-            <div class="absolute inset-0" style="background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,0.85) 100%)"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <div class="font-sans text-[10px] tracking-[0.3em] uppercase mb-1" style="color:var(--gold)">New Collection</div>
-              <div class="font-serif text-2xl font-semibold text-white">Earrings &amp; Jhumkas</div>
             </div>
           </div>
 
@@ -1112,6 +1114,7 @@
       <button type="button" class="filter-btn" data-filter="mangalsutra">Mangalsutra</button>
       <button type="button" class="filter-btn" data-filter="instore">In-Store</button>
       <button type="button" class="filter-btn" data-filter="watches">Watches</button>
+      <button type="button" class="filter-btn" data-filter="videos">Videos</button>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="gallery-grid" style="position:relative">
       
@@ -1429,6 +1432,39 @@
           <div class="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,transparent 100%)">
             <div class="font-serif text-base font-semibold" style="color:var(--gold)">In-Store Walkthrough</div>
             <div class="font-sans text-xs mt-1" style="color:var(--cream-muted)">A look inside our Sadar Bazar showroom</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item group overflow-hidden rounded-sm border border-gold-900 hover:border-gold-600 transition-all duration-400 cursor-pointer reveal" data-category="videos">
+        <div class="overflow-hidden relative" style="aspect-ratio:4/3">
+          <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
+            <source src="video_weby.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,transparent 100%)">
+            <div class="font-serif text-base font-semibold" style="color:var(--gold)">In-Store Reel</div>
+            <div class="font-sans text-xs mt-1" style="color:var(--cream-muted)">Fresh stock walkthrough</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item group overflow-hidden rounded-sm border border-gold-900 hover:border-gold-600 transition-all duration-400 cursor-pointer reveal" data-category="videos">
+        <div class="overflow-hidden relative" style="aspect-ratio:4/3">
+          <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
+            <source src="video_iy10.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,transparent 100%)">
+            <div class="font-serif text-base font-semibold" style="color:var(--gold)">New Arrivals Reel</div>
+            <div class="font-sans text-xs mt-1" style="color:var(--cream-muted)">Latest designs on display</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item group overflow-hidden rounded-sm border border-gold-900 hover:border-gold-600 transition-all duration-400 cursor-pointer reveal" data-category="videos">
+        <div class="overflow-hidden relative" style="aspect-ratio:4/3">
+          <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
+            <source src="video_iy9.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,transparent 100%)">
+            <div class="font-serif text-base font-semibold" style="color:var(--gold)">Collection Highlights</div>
+            <div class="font-sans text-xs mt-1" style="color:var(--cream-muted)">Trending wholesale picks</div>
           </div>
         </div>
       </div>
